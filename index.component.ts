@@ -22,7 +22,7 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-      this.router.navigate(['/login'])
+      this.router.navigate(['https://bloomfieldfong.github.io/login'])
     });
   }
 }

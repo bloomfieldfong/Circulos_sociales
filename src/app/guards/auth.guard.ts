@@ -20,7 +20,7 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return this.AFauth.authState.pipe(map (auth => {
       if (isNullOrUndefined(auth)){
-        this.router.navigate(['/login']);
+        this.router.navigate(['https://bloomfieldfong.github.io/login']);
         return false;
       }
       else{

@@ -22,7 +22,7 @@ export class NologinGuard implements CanActivate {
         return true;
       }
       else{
-        this.router.navigate(['/home']);
+        this.router.navigate(['https://bloomfieldfong.github.io/home']);
         return false;
       }
 
