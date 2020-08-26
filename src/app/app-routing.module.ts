@@ -30,8 +30,9 @@ const routes: Routes = [
   },
   {
     path: 'registro',
-    loadChildren: () => import('./componentes/registro/registro.module').then( m => m.RegistroPageModule)
-  }
+    loadChildren: () => import('./componentes/registro/registro.module').then( m => m.RegistroPageModule), canActivate:[NologinGuard]
+  },
+  
 
 ];
 

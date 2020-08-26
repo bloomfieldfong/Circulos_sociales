@@ -24,4 +24,8 @@ export class LoginPage implements OnInit {
 
   }
 
+  move(){
+    this.router.navigate(["/registro"])
+  }
+
 }
