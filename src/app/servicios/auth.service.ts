@@ -24,12 +24,14 @@ export class AuthService {
     })
   }
 
-  registro(email: string, password: string, name:string){
+  registro(email: string, password: string, name:string, clase: string[], carrera: string){
     return new Promise((resolve, reject) => {
       this.AFauth.createUserWithEmailAndPassword(email, password).then(res => {
         this.db.collection('user').doc(res.user.uid).set({
           name: name,
-          uid: res.user.uid
+          uid: res.user.uid,
+          clase: clase,
+          carrera: carrera 
         })
         resolve(res)
       }).catch(err => reject(err))

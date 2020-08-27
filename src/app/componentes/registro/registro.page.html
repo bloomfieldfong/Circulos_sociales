@@ -17,7 +17,7 @@
 <ion-content padding>
 
   <ion-item>
-    <ion-label position = "floating">Nombre</ion-label>
+    <ion-label position = "floating">Nombre y Apellido</ion-label>
     <ion-input type = "text"  [(ngModel)]= "name"  name = "name"></ion-input>
   </ion-item>
   
@@ -28,10 +28,46 @@
 
 <ion-item>
   <ion-label position = "floating">Contraseña</ion-label>
-  <ion-input type = "password" [(ngModel)]= "password"name = "password"></ion-input>
+  <ion-input  [(ngModel)]= "password"name = "password"></ion-input>
 </ion-item>
+<br>
+
+<ion-item>
+  <ion-label position = "floating">Carrera</ion-label>
+  <ion-input  [(ngModel)]= "carrera"name = "carrera"></ion-input>
+</ion-item>
+<br>
+
+
+<ion-list>
+  <div class="ion-text-center">
+    <ion-label>
+      ¿Que clase estas recibiendo este semestre?
+    </ion-label>
+  </div>
+
+  <ion-item >
+    <ion-label>Clases</ion-label>
+    <ion-select multiple="true" okText="Okay!" [(ngModel)] = "clase">
+      <ion-select-option value="Calculo I">Calculo I</ion-select-option>
+      <ion-select-option value="Pensamiento Cuantitativo">Pensamiento Cuantitativo</ion-select-option>
+      <ion-select-option value="Ciudadania Global">Ciudadania Global</ion-select-option>
+      <ion-select-option value=">Algoritmos y Programación Básica">Algoritmos y Programación Básica</ion-select-option>
+      <ion-select-option value="Estadistica I">Estadistica I</ion-select-option>
+      <ion-select-option value="Quimica I">Quimica I</ion-select-option>
+      <ion-select-option value="Quimica II">Quimica II</ion-select-option>
+      <ion-select-option value="Quimica General">Quimica General</ion-select-option>
+      <ion-select-option value="Fisica I">Fisica I</ion-select-option>
+      <ion-select-option value="Coaching">Coaching</ion-select-option>
+    </ion-select>
+  </ion-item>
+</ion-list>
 
 <br>
-<ion-button color = "secondary"  expand = "block" (click)= "OnSubmitRegister()">Registrarse</ion-button>
+<div class="ion-text-center">
+<ion-button color = "secondary" expand="block" (click)= "OnSubmitRegister()">Registrarse</ion-button>
+</div>
+
 <br>
+
 

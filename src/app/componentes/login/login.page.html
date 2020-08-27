@@ -19,13 +19,16 @@
 
 <ion-item>
   <ion-label position = "floating">Contraseña</ion-label>
-  <ion-input type = "password" [(ngModel)]= "password" name = "Usuario"></ion-input>
+  <ion-input type = "password" [(ngModel)]= "password" name = "password"></ion-input>
 </ion-item>
 
 <br>
-<ion-button (click)= "onSubmitLogin()" expand = "block">Ingresar</ion-button>
-  
+<div class="ion-text-center">
+  <ion-button expand="block" (click)= "onSubmitLogin()" >Ingresar</ion-button>
+</div>
 <br>
 <div class="ion-text-center">
 <p text-center routerLink = "/registro">Crear cuenta</p>
 </div>
+
+

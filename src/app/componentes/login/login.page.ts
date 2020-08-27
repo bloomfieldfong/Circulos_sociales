@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from "../../servicios/auth.service";
 import { Router } from "@angular/router";
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginPage implements OnInit {
   email: string;
   password: string;
 
-  constructor(private auth: AuthService, public router: Router) { }
+  constructor(private auth: AuthService, public router: Router, public alertController: AlertController) { }
 
   ngOnInit() {
   }
@@ -20,7 +21,10 @@ export class LoginPage implements OnInit {
   onSubmitLogin(){
     this.auth.login(this.email, this.password).then(res => {
       this.router.navigate(["/home"])
-    }).catch(err => alert("Los datos ingresados son incorrectos o no existe el usuario"))
+    }).catch(err => 
+      this.presentAlert()
+      )
+
 
   }
 
@@ -28,4 +32,18 @@ export class LoginPage implements OnInit {
     this.router.navigate(["/registro"])
   }
 
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Datos invalidos',
+      message: 'La contraseña o usuario son incorrectos',
+      buttons: ['OK']
+    });
+  
+    await alert.present();
+  }
+
 }
+
+
+
