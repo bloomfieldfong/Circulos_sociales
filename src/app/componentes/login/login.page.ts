@@ -13,6 +13,10 @@ export class LoginPage implements OnInit {
   email: string;
   password: string;
 
+  
+  showPassword  = false;
+  passwordToggleIcon = 'eye';
+
   constructor(private auth: AuthService, public router: Router, public alertController: AlertController) { }
 
   ngOnInit() {
@@ -30,6 +34,15 @@ export class LoginPage implements OnInit {
 
   move(){
     this.router.navigate(["/registro"])
+  }
+
+  togglePassword():void{
+    this.showPassword = !this.showPassword
+    if (this.passwordToggleIcon == "eye"){
+      this.passwordToggleIcon = 'eye-off'
+    }else{
+      this.passwordToggleIcon = 'eye'
+    }
   }
 
   async presentAlert() {

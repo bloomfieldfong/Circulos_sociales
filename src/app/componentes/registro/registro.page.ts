@@ -18,6 +18,8 @@ export class RegistroPage implements OnInit {
   public name: string
   public clase: string[]
   public carrera: string
+
+
   constructor(private auth: AuthService, public router: Router, public alertController: AlertController) { }
 
   ngOnInit() {
@@ -29,14 +31,27 @@ export class RegistroPage implements OnInit {
       console.log(auth)
       this.presentAlert()
       this.router.navigate(["/login"])
-    }).catch(err =>console.log(err))
+    }).catch(err =>{console.log(err)
+    this.AlertIncorrect()
+    })
   }
 
   async presentAlert() {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
-      header: 'Registro Invalido',
-      message: 'Se ha registrado correctamente',
+      header: 'Registro Completo',
+      message: 'Se ha registrado correctamente, gracias por utilizar "nombre app"',
+      buttons: ['OK']
+    });
+
+    await alert.present();
+  }
+
+  async AlertIncorrect() {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'No se pudo registrar',
+      message: 'No has llenado todos los campos',
       buttons: ['OK']
     });
 

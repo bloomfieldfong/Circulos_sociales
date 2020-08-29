@@ -42,6 +42,27 @@
 <ion-list>
   <div class="ion-text-center">
     <ion-label>
+      ¿De que departartamento pertences?
+    </ion-label>
+  </div>
+  <ion-item >
+    <ion-label>Departamento</ion-label>
+    <ion-select multiple="false" okText="Okay!" [(ngModel)] = "clase">
+      <ion-select-option value="Ingenieria">Ingenieria</ion-select-option>
+      <ion-select-option value="Ciencias y Humanidades">Ciencias y Humanidades</ion-select-option>
+      <ion-select-option value="Ciencias Sociales">Ciencias Sociales</ion-select-option>
+      <ion-select-option value="Colegio Universitario (BS/BA)">Colegio Universitario (BS/BA)</ion-select-option>
+      <ion-select-option value="Educacion">Educacion</ion-select-option>
+      <ion-select-option value="Business And Management School">Business And Management School</ion-select-option>
+      <ion-select-option value="Desing Innovation & Arts Schools">Desing Innovation & Arts Schools</ion-select-option>
+    </ion-select>
+  </ion-item>
+</ion-list>
+
+
+<ion-list>
+  <div class="ion-text-center">
+    <ion-label>
       ¿Que clase estas recibiendo este semestre?
     </ion-label>
   </div>
@@ -52,7 +73,7 @@
       <ion-select-option value="Calculo I">Calculo I</ion-select-option>
       <ion-select-option value="Pensamiento Cuantitativo">Pensamiento Cuantitativo</ion-select-option>
       <ion-select-option value="Ciudadania Global">Ciudadania Global</ion-select-option>
-      <ion-select-option value=">Algoritmos y Programación Básica">Algoritmos y Programación Básica</ion-select-option>
+      <ion-select-option value="Algoritmos y Programación Básica">Algoritmos y Programación Básica</ion-select-option>
       <ion-select-option value="Estadistica I">Estadistica I</ion-select-option>
       <ion-select-option value="Quimica I">Quimica I</ion-select-option>
       <ion-select-option value="Quimica II">Quimica II</ion-select-option>
