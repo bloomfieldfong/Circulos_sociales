@@ -1,0 +1,29 @@
+
+<ion-header>
+    <ion-toolbar color = "danger">
+
+    <ion-button slot = "start" fill = "clear" (click) ="closeChat()">
+        <ion-icon style= "color:aliceblue; font-size: 25px " name="arrow-back-outline"></ion-icon>
+    </ion-button>
+
+      <ion-title>{{name}}</ion-title>
+    </ion-toolbar>
+  
+  </ion-header>
+  
+  <ion-content padding>
+
+    <ul>
+        <li *ngFor = "let mens of mensajes">{{mens}}</li>
+    </ul>
+  </ion-content>
+  
+  <ion-footer>
+      <ion-item>
+          <ion-textarea [(ngModel)] = "msg"></ion-textarea>
+          <ion-buttom color = "success">
+            <br>
+             <ion-icon name = "send" (click) = "enviarMsg()"></ion-icon>
+          </ion-buttom>
+      </ion-item>
+  </ion-footer>
