@@ -16,8 +16,16 @@ export class MensajesPage implements OnInit {
 
   ngOnInit() {
     this.chatservice.getChatRoom().subscribe(chats=>{
-      this.chatRooms = chats;
-      
+      console.log(chats)
+      console.log("s")
+      let nuev_chat: any =[]
+      for (let ss of chats){
+        if (ss != 0){
+          nuev_chat.push(ss)
+        }
+      }
+      console.log(nuev_chat)
+      this.chatRooms = nuev_chat;
     })
   }
 

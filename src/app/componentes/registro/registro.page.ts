@@ -3,6 +3,7 @@ import { AuthService } from "../../servicios/auth.service"
 import { RouteConfigLoadEnd } from '@angular/router';
 import { Router } from "@angular/router";
 import { AlertController } from '@ionic/angular';
+import { AngularFireAuth } from "@angular/fire/auth";
 
 @Component({
   selector: 'app-registro',
