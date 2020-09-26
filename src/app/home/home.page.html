@@ -11,7 +11,7 @@
 
 </ion-header>
 
-<ion-content padding>
+<ion-content forceOverscroll = true>
     <ion-list>
       <ion-item *ngFor = "let profile of profiles">
         <ion-avatar slot ="start">
@@ -24,11 +24,9 @@
   </ion-list>
 </ion-content>
 
-
-
-
+<ion-content>
 <ion-tabs>
-  <ion-tab-bar slot="bottom"  color = "danger">
+  <ion-tab-bar  color = "danger">
     <ion-tab-button>
       <ion-icon name="home"></ion-icon>
       <ion-label>Inicio</ion-label>
@@ -46,3 +44,5 @@
       <ion-label>Perfil</ion-label>
     </ion-tab-button>
   </ion-tab-bar>
+</ion-tabs>
+</ion-content>
