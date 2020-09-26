@@ -9,18 +9,16 @@
     </ion-toolbar>
 
     <ion-list>
-      <ion-item>
-        <ion-item>
-          <ion-avatar slot ="start">
-          </ion-avatar>
-          <ion-label>
-            <h2><b>Michelle Bloomfield</b></h2>
-          </ion-label>
-        </ion-item>
+      <ion-item *ngFor = "let profile of profiles" (click) = "OpenChat(chat)">
+        <ion-avatar slot ="start">
+          <ion-img src = "https://cnnespanol.cnn.com/wp-content/uploads/2019/05/190524002834-20190524-boss-texting-super-tease.jpg?quality=100&strip=info&w=414&h=311&crop=1"></ion-img>
+        </ion-avatar>
+        <ion-label>
+          <h2><b>{{profile.name}}</b></h2>
+        </ion-label>
       </ion-item>
-    </ion-list>
-  
-  
+  </ion-list>
+
 </ion-header>
 
 
