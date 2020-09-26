@@ -9,9 +9,9 @@
     </ion-toolbar>
 
 
-</ion-header>
+</ion-header >
 
-<ion-content forceOverscroll = true>
+<ion-content class="page-content">
     <ion-list>
       <ion-item *ngFor = "let profile of profiles">
         <ion-avatar slot ="start">
@@ -24,9 +24,10 @@
   </ion-list>
 </ion-content>
 
-<ion-content>
+<ion-content >
+  <!-- custom google map directive -->
 <ion-tabs>
-  <ion-tab-bar  color = "danger">
+  <ion-tab-bar   color = "danger">
     <ion-tab-button>
       <ion-icon name="home"></ion-icon>
       <ion-label>Inicio</ion-label>
