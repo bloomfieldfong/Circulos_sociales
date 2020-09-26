@@ -21,6 +21,17 @@ export class HomePage {
 
     this.usuariosService.getChatRoom().subscribe(usuarios =>{
       this.profiles = usuarios;
+
+      console.log(usuarios)
+      console.log("s")
+      let nuev_chat: any =[]
+      for (let ss of usuarios){
+        if (ss != 0){
+          nuev_chat.push(ss)
+        }
+      }
+      console.log(nuev_chat)
+      this.profiles = nuev_chat;
     })
   }
 
