@@ -13,6 +13,8 @@ import { AngularFirestoreModule} from "@angular/fire/firestore"
 import { ChatComponent } from './componentes/chat/chat.component'
 import { FormsModule} from "@angular/forms"
 import { UsuariosComponent } from "./componentes/usuarios/usuarios.component";
+import { ErrorHandler, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+
 
 @NgModule({
   declarations: [AppComponent, ChatComponent, UsuariosComponent],
@@ -25,6 +27,7 @@ import { UsuariosComponent } from "./componentes/usuarios/usuarios.component";
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule {}
