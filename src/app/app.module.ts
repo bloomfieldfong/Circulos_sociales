@@ -25,7 +25,7 @@ import { ErrorHandler, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    { provide: ErrorHandler, useClass: IonicRouteStrategy },
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
