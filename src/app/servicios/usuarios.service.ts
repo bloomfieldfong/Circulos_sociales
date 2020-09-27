@@ -6,7 +6,7 @@ import { AngularFireAuth } from "@angular/fire/auth";
 
 export interface perfil{
   name: string
-  id: string
+  uid: string
   clase: string[]
   carrera: string
 }
@@ -26,32 +26,26 @@ export class UsuariosService {
     return this.authState !== null;
   }
 
-get currentUserId(): string {
-  return this.isAuthenticated ? this.authState.uid : null;
-}
-  
+  get currentUserId(): string {
+    return this.isAuthenticated ? this.authState.uid : null;
+  }
   
   getChatRoom(){
     this.db.collection("user")
     return this.db.collection("user").snapshotChanges().pipe(map(rooms =>{
       return rooms.map(a => {
         const data = a.payload.doc.data() as perfil;
-        data.id = a.payload.doc.id;   
+        data.uid = a.payload.doc.id;   
         console.log(data)
-
-        for (let ss of data.name){
-          console.log(this.currentUserId)
-          console.log(ss)
-          if (ss != this.currentUserId){
+          if (data.uid != this.currentUserId){
             return data;
           }
           else{
             return 0
           } 
-        }
-
-        return data
       })
     }))
   }
+
+
 }

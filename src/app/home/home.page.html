@@ -7,25 +7,23 @@
       <ion-icon style= "color:aliceblue" name="log-out-outline"></ion-icon>
     </ion-button>
     </ion-toolbar>
-
-
 </ion-header >
 
 <ion-content class="page-content">
     <ion-list>
-      <ion-item *ngFor = "let profile of profiles">
+      <ion-item *ngFor = "let profile of profiles" (click) = OpenProfile(profile)>
         <ion-avatar slot ="start">
-          <ion-img src = "https://cnnespanol.cnn.com/wp-content/uploads/2019/05/190524002834-20190524-boss-texting-super-tease.jpg?quality=100&strip=info&w=414&h=311&crop=1"></ion-img>
+          <ion-img src = "https://happytravel.viajes/wp-content/uploads/2020/04/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png"></ion-img>
         </ion-avatar>
         <ion-label>
           <h2><b>{{profile.name}}</b></h2>
+          <p>{{profile.carrera}}</p>
         </ion-label>
       </ion-item>
   </ion-list>
 </ion-content>
 
-<ion-content >
-  <!-- custom google map directive -->
+<ion-content>
 <ion-tabs>
   <ion-tab-bar   color = "danger">
     <ion-tab-button>

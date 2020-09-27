@@ -10,11 +10,12 @@ import { firebase } from "../environments/environment";
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFirestoreModule} from "@angular/fire/firestore"
-import {ChatComponent} from './componentes/chat/chat.component'
+import { ChatComponent } from './componentes/chat/chat.component'
 import { FormsModule} from "@angular/forms"
+import { UsuariosComponent } from "./componentes/usuarios/usuarios.component";
 
 @NgModule({
-  declarations: [AppComponent, ChatComponent],
+  declarations: [AppComponent, ChatComponent, UsuariosComponent],
   entryComponents: [ChatComponent],
   imports: [FormsModule, BrowserModule, IonicModule.forRoot(), AppRoutingModule, 
   AngularFireModule.initializeApp(firebase),

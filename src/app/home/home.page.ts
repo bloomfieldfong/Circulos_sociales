@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { AuthService } from "../servicios/auth.service";
 import { Router } from "@angular/router";
 import { UsuariosService } from "../servicios/usuarios.service";
+import { ModalController} from "@ionic/angular"
+import {UsuariosComponent} from '../componentes/usuarios/usuarios.component'
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -10,7 +12,7 @@ import { UsuariosService } from "../servicios/usuarios.service";
 export class HomePage {
 
   public profiles : any= []
-  constructor(public authService: AuthService, private router: Router, public usuariosService: UsuariosService){}
+  constructor(public authService: AuthService, private router: Router, public usuariosService: UsuariosService, private modal: ModalController){}
   
   Onlogout(){
     console.log("hola")
@@ -21,7 +23,6 @@ export class HomePage {
 
     this.usuariosService.getChatRoom().subscribe(usuarios =>{
       this.profiles = usuarios;
-
       console.log(usuarios)
       console.log("s")
       let nuev_chat: any =[]
@@ -35,6 +36,18 @@ export class HomePage {
     })
   }
 
+  OpenProfile(usario){
+    this.modal.create({
+      component :UsuariosComponent,
+      componentProps : {
+        name: usario.name,
+        uid : usario.uid,
+        carrera : usario.carrera,
+        clases : usario.clase,
+      }
+    }).then((modal)=> modal.present())
+
+  }
   moveGroup(){
     this.router.navigate(['/grupos']);
   }

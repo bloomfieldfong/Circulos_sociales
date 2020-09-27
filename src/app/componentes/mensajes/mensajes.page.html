@@ -2,24 +2,22 @@
   <ion-toolbar color = "danger">
     <ion-title>Mensajes</ion-title>
   </ion-toolbar>
-
-  <ion-list>
-      <ion-item *ngFor = "let chat of chatRooms" (click) = "OpenChat(chat)">
-        <ion-avatar slot ="start">
-          <ion-img src = "https://cnnespanol.cnn.com/wp-content/uploads/2019/05/190524002834-20190524-boss-texting-super-tease.jpg?quality=100&strip=info&w=414&h=311&crop=1"></ion-img>
-        </ion-avatar>
-        <ion-label>
-          <h2><b>{{chat.nombre}}</b></h2>
-        </ion-label>
-      </ion-item>
-  </ion-list>
-
 </ion-header>
 
-<ion-content>
+<ion-content class="page-content">
+  <ion-list>
+    <ion-item *ngFor = "let chat of chatRooms" (click) = "OpenChat(chat)">
+      <ion-avatar slot ="start">
+        <ion-img src = "https://cnnespanol.cnn.com/wp-content/uploads/2019/05/190524002834-20190524-boss-texting-super-tease.jpg?quality=100&strip=info&w=414&h=311&crop=1"></ion-img>
+      </ion-avatar>
+      <ion-label>
+        <h2><b>{{chat.nombre}}</b></h2>
+      </ion-label>
+    </ion-item>
+</ion-list>
 </ion-content>
 
-
+<ion-content>
 <ion-tabs>
   <ion-tab-bar slot="bottom"  color = "danger">
     <ion-tab-button (click)="moveHome()">
@@ -39,3 +37,5 @@
       <ion-label>Perfil</ion-label>
     </ion-tab-button>
   </ion-tab-bar>
+</ion-tabs>
+</ion-content>
