@@ -1,11 +1,9 @@
 
 <ion-header>
     <ion-toolbar color = "danger">
-
     <ion-button slot = "start" fill = "clear" (click) ="closeChat()">
         <ion-icon style= "color:aliceblue; font-size: 25px " name="arrow-back-outline"></ion-icon>
     </ion-button>
-
       <ion-title>{{name}}</ion-title>
     </ion-toolbar>
   
@@ -14,7 +12,7 @@
   <ion-content padding>
 
     <ul>
-        <li *ngFor = "let mens of mensajes">{{mens}}</li>
+        <li *ngFor = "let mens of clases">{{mens}}</li>
     </ul>
   </ion-content>
   
