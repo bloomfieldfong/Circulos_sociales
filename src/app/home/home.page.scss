@@ -7,12 +7,17 @@
   transform: translateY(-50%);
 }
 
+hr.new5 {
+  border: 10px solid green;
+  border-radius: 5px;
+}
+
 #container strong {
   font-size: 20px;
   line-height: 26px;
 }
 
-#container p {
+.p {
   font-size: 16px;
   line-height: 22px;
   color: #8c8c8c;
@@ -24,6 +29,31 @@
 }
 
 .page-content {
-  min-height:530px;
+  min-height:72%;
   background-color: red
+}
+
+.pos {
+  position:fixed;
+  top: 80%;
+  left: 73%;
+  z-index: 2;
+  height: 100px;
+  width: 70px;
+  
+}
+
+.imgan{
+  height: 80%;
+  width: 80%;
+}
+
+.s{
+  border-radius: 50%;
+}
+
+
+
+.ss{
+  font-size: 50%;
 }

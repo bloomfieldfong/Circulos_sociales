@@ -1,18 +1,28 @@
-
 <ion-header>
-    <ion-toolbar color = "danger">
+    <ion-toolbar color = "success">
     <ion-button slot = "start" fill = "clear" (click) ="closeChat()">
         <ion-icon style= "color:aliceblue; font-size: 25px " name="arrow-back-outline"></ion-icon>
     </ion-button>
       <ion-title>{{name}}</ion-title>
     </ion-toolbar>
-  
   </ion-header>
   
   <ion-content padding>
-
-    <ul>
-        <li *ngFor = "let mens of clases">{{mens}}</li>
+    <ul *ngIf = "room" class= "hola"> 
+        <div *ngFor = "let mens of room.mensaje">
+          <div class="box3">
+            <div class = "s1">
+              <div class = "s4">
+                {{mens.who[1]}}    
+              </div>          
+            </div>
+            <div class = "s2">
+              <div class = " s3">
+               {{mens.contenido}}
+              </div>
+            </div>
+          </div>
+          </div>
     </ul>
   </ion-content>
   
@@ -21,7 +31,7 @@
           <ion-textarea [(ngModel)] = "msg"></ion-textarea>
           <ion-buttom color = "success">
             <br>
-             <ion-icon name = "send" (click) = "enviarMsg()"></ion-icon>
+             <ion-icon name = "send" (click) = "enviarMsg()" color = "success"></ion-icon>
           </ion-buttom>
       </ion-item>
   </ion-footer>

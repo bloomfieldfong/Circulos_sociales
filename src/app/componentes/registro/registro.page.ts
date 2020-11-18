@@ -20,6 +20,7 @@ export class RegistroPage implements OnInit {
   public clase: string[]
   public carrera: string
   public departamento: string
+  public interes: string[]
 
 
   constructor(private auth: AuthService, public router: Router, public alertController: AlertController) { }
@@ -29,7 +30,7 @@ export class RegistroPage implements OnInit {
 
   OnSubmitRegister(){
     console.log(this.email)
-    this.auth.registro(this.email,this.password, this.name, this.clase, this.carrera, this.departamento).then(auth=> {
+    this.auth.registro(this.email,this.password, this.name, this.clase, this.carrera, this.departamento, this.interes).then(auth=> {
       console.log(auth)
       this.presentAlert()
       this.router.navigate(["/login"])
@@ -42,7 +43,7 @@ export class RegistroPage implements OnInit {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
       header: 'Registro Completo',
-      message: 'Se ha registrado correctamente, gracias por utilizar "nombre app"',
+      message: 'Se ha registrado correctamente, gracias por utilizar UVG-Meet',
       buttons: ['OK']
     });
 

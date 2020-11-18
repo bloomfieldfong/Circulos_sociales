@@ -8,7 +8,8 @@ export interface perfil{
   name: string
   uid: string
   clase: string[]
-  carrera: string
+  carrera: string,
+  interes: string[]
 }
 
 @Injectable({
@@ -36,7 +37,6 @@ export class UsuariosService {
       return rooms.map(a => {
         const data = a.payload.doc.data() as perfil;
         data.uid = a.payload.doc.id;   
-        console.log(data)
           if (data.uid != this.currentUserId){
             return data;
           }
@@ -47,5 +47,21 @@ export class UsuariosService {
     }))
   }
 
+  getName(userid){
+    this.db.collection("user")
+    return this.db.collection("user").snapshotChanges().pipe(map(rooms =>{
+      return rooms.map(a => {
+        const datas = a.payload.doc.data() as perfil;
+        datas.uid = a.payload.doc.id;   
 
+          if (String(datas.uid) == String(userid)){
+
+            return datas.name;
+          }
+          else{
+            return 0
+          } 
+      })
+    }))
+  }
 }

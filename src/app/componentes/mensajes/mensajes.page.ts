@@ -3,6 +3,7 @@ import { Router } from "@angular/router";
 import { ChatsService, chat } from "../../servicios/chats.service";
 import { ModalController} from "@ionic/angular"
 import { ChatComponent } from "../chat/chat.component";
+import { PerfilService } from "../../servicios/perfil.service";
 
 @Component({
   selector: 'app-mensajes',
@@ -12,9 +13,28 @@ import { ChatComponent } from "../chat/chat.component";
 export class MensajesPage implements OnInit {
 
   public chatRooms : any= []
-  constructor( private router: Router, public chatservice: ChatsService, private modal: ModalController){}
+  public who: string;
+  public who_name: string;
+  public profile: any = []
+
+  constructor( private router: Router, public chatservice: ChatsService, private modal: ModalController, public perfilService: PerfilService){}
 
   ngOnInit() {
+
+    this.perfilService.getProfile().subscribe(perfiles=>{
+      this.profile = perfiles
+      for (let ss of perfiles){
+        if (ss != 0){
+          this.profile = ss
+          this.who = ss.id
+          this.who_name = ss.name
+          console.log(this.who)
+          console.log(this.who_name)
+          console.log(ss)
+        }
+      }
+    })
+
     this.chatservice.getChatRoom().subscribe(chats=>{
       console.log(chats)
       console.log("s")
@@ -33,7 +53,10 @@ export class MensajesPage implements OnInit {
     this.modal.create({
       component :ChatComponent,
       componentProps : {
-        nombre: chat.nombre
+        nombre: chat.nombre,
+        id: chat.id,
+        who: this.who,
+        who_name: this.who_name
       }
     }).then((modal)=> modal.present())
 

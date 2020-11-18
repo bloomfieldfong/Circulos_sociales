@@ -1,39 +1,60 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color = "danger">
+  <ion-toolbar color = "success">
     <ion-title>
       Inicio
+
+      <ion-icon name="alert-circle-outline" style = "float: right;" (click) = OpenGroup(profiles)></ion-icon>
+
     </ion-title>
-    <ion-button slot = "end" fill = "clear" (click)="Onlogout()">
-      <ion-icon style= "color:aliceblue" name="log-out-outline"></ion-icon>
-    </ion-button>
+
     </ion-toolbar>
+
+
 </ion-header >
 
+
+
+<ion-searchbar (ionInput) = "filterList($event)"></ion-searchbar>
 <ion-content class="page-content">
-    <ion-list>
+    
+  <ion-list>
       <ion-item *ngFor = "let profile of profiles" (click) = OpenProfile(profile)>
         <ion-avatar slot ="start">
           <ion-img src = "https://happytravel.viajes/wp-content/uploads/2020/04/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png"></ion-img>
         </ion-avatar>
         <ion-label>
           <h2><b>{{profile.name}}</b></h2>
-          <p>{{profile.carrera}}</p>
+          <h4><p class = "p">{{profile.carrera}}</p></h4>
         </ion-label>
+
       </ion-item>
   </ion-list>
+
+
+  <div class = "pos">
+    <ion-button class = "s"color = "danger" (click) = OpenGroup(profiles)>
+         <img src= "../../assets/icon/groups.png" style="width : 70% ; height : 80%" >
+        
+         <div class =  "ss">
+          <br>
+        </div>
+
+    </ion-button>
+    
+  </div>
+  
+
+
 </ion-content>
 
-<ion-content>
+<ion-content class = "abajo">
 <ion-tabs>
-  <ion-tab-bar   color = "danger">
+  <ion-tab-bar   color = "success">
     <ion-tab-button>
       <ion-icon name="home"></ion-icon>
       <ion-label>Inicio</ion-label>
     </ion-tab-button>
-    <ion-tab-button (click) = "moveGroup()">
-      <ion-icon name="people-outline"></ion-icon>
-      <ion-label>Grupos</ion-label>
-    </ion-tab-button>
+   
     <ion-tab-button (click) = "moveMensajes()">
       <ion-icon name="chatbox-ellipses-outline"></ion-icon>
       <ion-label>Mensajes</ion-label>

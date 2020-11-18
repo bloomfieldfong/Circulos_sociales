@@ -39,14 +39,14 @@ export class PerfilService {
         data.id = a.payload.doc.id;
 
         if (data.id == this.currentUserId){
-          console.log("ya regrese")
           return data
         }else{
           return 0 
         }
-
-
       })
     }))
   }
+
+
+  
 }

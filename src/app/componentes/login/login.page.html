@@ -1,6 +1,6 @@
 <ion-header>
   
-  <ion-toolbar color = "danger">
+  <ion-toolbar color = "success">
     <div class="ion-text-center">
       <ion-title text-center>Inicio de Sesión</ion-title>
     </div>
@@ -8,10 +8,11 @@
 </ion-header>
 
 <ion-content padding>
+  <br>
   <img class = "icon" src = "assets/icon/logo.png" alt = ""> 
-</ion-content>
-
-<ion-content padding>
+<br>
+<br>
+<br>
 <ion-item>
   <ion-label position = "floating">Correo</ion-label>
   <ion-input type = "text" [(ngModel)]= "email" name = "Correo"></ion-input>
@@ -25,11 +26,11 @@
 
 <br>
 <div class="ion-text-center">
-  <ion-button expand="block" (click)= "onSubmitLogin()" >Ingresar</ion-button>
-</div>
-<br>
-<div class="ion-text-center">
-<p text-center routerLink = "/registro">Crear cuenta</p>
+  <ion-button  color = "success" (click)= "onSubmitLogin()" >Ingresar</ion-button>
 </div>
 
+<div class="ion-text-center">
+<p text-center routerLink = "/registro" style= "color:skyblue">Crear cuenta</p>
+</div>
+</ion-content>
 

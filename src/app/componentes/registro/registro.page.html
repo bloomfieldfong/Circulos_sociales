@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar color = "danger">
+  <ion-toolbar color = "success">
     
     <ion-button slot = "start" fill = "clear" routerLink = "/login">
       <ion-icon style= "color:aliceblue; font-size: 25px " name="arrow-back-outline"></ion-icon>
@@ -11,11 +11,12 @@
 </ion-header>
 
 <ion-content padding>
+  <br>
   <img class = "icon" src = "assets/icon/logo.png" alt = ""> 
-</ion-content>
 
-<ion-content padding>
-
+<br>
+<br>
+<br>
   <ion-item>
     <ion-label position = "floating">Nombre y Apellido</ion-label>
     <ion-input type = "text"  [(ngModel)]= "name"  name = "name"></ion-input>
@@ -84,11 +85,33 @@
   </ion-item>
 </ion-list>
 
+
+<ion-list>
+  <div class="ion-text-center">
+    <ion-label>
+      ¿Selecciona tus intereses?
+    </ion-label>
+  </div>
+  <ion-item >
+    <ion-label>Intereses</ion-label>
+    <ion-select multiple="true" okText="Okay!" [(ngModel)] = "interes">
+      <ion-select-option value="Musica">Musica</ion-select-option>
+      <ion-select-option value="Videojuegos">Videojuegos</ion-select-option>
+      <ion-select-option value="Peliculas">Peliculas</ion-select-option>
+      <ion-select-option value="Deporte">Deporte</ion-select-option>
+      <ion-select-option value="Tecnologia">Tecnologia</ion-select-option>
+      <ion-select-option value="Juegos de Mesa">Juegos de Mesa</ion-select-option>
+      <ion-select-option value="Fotografia">Fotografia</ion-select-option>
+    </ion-select>
+  </ion-item>
+</ion-list>
+
+
 <br>
 <div class="ion-text-center">
-<ion-button color = "secondary" expand="block" (click)= "OnSubmitRegister()">Registrarse</ion-button>
+<ion-button color = "secondary" color = "success" (click)= "OnSubmitRegister()">Registrarse</ion-button>
 </div>
-
+</ion-content>
 <br>
 
 

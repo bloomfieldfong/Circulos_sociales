@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar color = "success">
+  <ion-button slot = "start" fill = "clear" (click) ="closeChat()">
+      <ion-icon style= "color:aliceblue; font-size: 25px " name="arrow-back-outline"></ion-icon>
+  </ion-button>
+
+    <ion-title>Crea tu grupo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <br>
+  <img class = "icon" src = "assets/icon/logo.png"> 
+  <br>
+
+  <ion-item>
+    <ion-label position = "floating">Nombre del grupo</ion-label>
+    <ion-input  [(ngModel)]= "nombre_chat" name = "grupo"></ion-input>
+  </ion-item>
+  <ion-searchbar (ionInput) = "filterList($event)"></ion-searchbar>
+</ion-content>
+
+<ion-content>
+  <ion-list>
+
+    <ion-item *ngFor = "let profile of profiles; let i = index">
+      <ion-avatar slot ="start">
+        <ion-img src = "https://happytravel.viajes/wp-content/uploads/2020/04/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png"></ion-img>
+      </ion-avatar>
+      
+      <ion-label>
+        <h2><b>{{profile.name}}</b></h2>
+      </ion-label>
+      <div *ngIf = "nueva[i] == 0">
+      <ion-button fill="clear" (click) = HacerAlgo(profile)>
+        <ion-icon name="add-circle" ></ion-icon>
+      </ion-button>
+      </div>
+    </ion-item>
+
+</ion-list>
+
+</ion-content>
+
+  <br>
+  <div class="ion-text-center">
+    <ion-button  color = "success" (click)= create_group()>Crear grupo</ion-button>
+  </div>
+  <br>
+
+
