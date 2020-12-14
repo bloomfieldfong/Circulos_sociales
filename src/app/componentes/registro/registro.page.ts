@@ -21,6 +21,7 @@ export class RegistroPage implements OnInit {
   public carrera: string
   public departamento: string
   public interes: string[]
+  public departament: string
 
 
   constructor(private auth: AuthService, public router: Router, public alertController: AlertController) { }
@@ -30,7 +31,7 @@ export class RegistroPage implements OnInit {
 
   OnSubmitRegister(){
     console.log(this.email)
-    this.auth.registro(this.email,this.password, this.name, this.clase, this.carrera, this.departamento, this.interes).then(auth=> {
+    this.auth.registro(this.email,this.password, this.name, this.clase, this.carrera, this.departamento, this.interes, this.departament).then(auth=> {
       console.log(auth)
       this.presentAlert()
       this.router.navigate(["/login"])

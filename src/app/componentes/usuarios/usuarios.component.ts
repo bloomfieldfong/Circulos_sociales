@@ -3,7 +3,7 @@ import { NavParams, ModalController } from "@ionic/angular";
 import { PerfilService } from "../../servicios/perfil.service";
 import { ChatComponent } from "../chat/chat.component";
 import {ChatsService, chat} from "../../servicios/chats.service"
-
+import { Router } from "@angular/router";
 @Component({
   selector: 'app-usuarios',
   templateUrl: './usuarios.component.html',
@@ -19,8 +19,10 @@ export class UsuariosComponent implements OnInit {
   public data: any = []
   public i: any;
   public chat: any;
+  public interes: any = [];
+  public departament: any;
   
-  constructor(private navParam: NavParams,private modal: ModalController,public perfilService: PerfilService, public chatService: ChatsService) { }
+  constructor(private router: Router,private navParam: NavParams,private modal: ModalController,public perfilService: PerfilService, public chatService: ChatsService) { }
 
   ngOnInit() {
     this.i = 0;
@@ -40,7 +42,8 @@ export class UsuariosComponent implements OnInit {
     this.clases = this.navParam.get('clases')
     this.uid = this.navParam.get('uid')
     this.hisid = this.navParam.get('hisid')
-    console.log(this.clases)
+    this.interes = this.navParam.get('intereses')
+    this.departament = this.navParam.get('departament')
     
   }
   OpenChat(chat){
@@ -81,6 +84,8 @@ crear_chat(){
     "Se creo el usuario correctamente"
     this.chatService.create_chat("", [this.uid, this.hisid], chat_id)
   }
+  this.modal.dismiss()
+  this.router.navigate(['/mensajes']);
 
 
 }

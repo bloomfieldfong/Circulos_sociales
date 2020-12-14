@@ -10,6 +10,8 @@ import { AuthService } from "../../servicios/auth.service";
 export class PerfilPage implements OnInit {
   public profile: any = []
   public clases: any = []
+  public interess: any = []
+  public departamento: any
   constructor(private router: Router, public perfilService: PerfilService, public authService: AuthService){}
 
   ngOnInit() {
@@ -19,6 +21,8 @@ export class PerfilPage implements OnInit {
         if (ss != 0){
           this.profile = ss
           this.clases = ss.clase
+          this.interess = ss.interes
+          this.departamento = ss.departament
         }
       }
     })

@@ -48,15 +48,20 @@ export class ChatComponent implements OnInit {
   }
 
 enviarMsg(){
+    if (this.msg != ""){
     const mensja : mensaje = {
       contenido: this.msg,
       type : 'text',
       date: new Date(),
       who: [this.who, this.who_name]
     }
-    console.log(mensja)
-    this.chatService.sendMsgToFiresabe(mensja, this.id)
-    this.msg = ""
+    
+      this.chatService.sendMsgToFiresabe(mensja, this.id)
+      this.msg = ""
+    }else{
+      console.log("")
+    }
+
     
   }
 }

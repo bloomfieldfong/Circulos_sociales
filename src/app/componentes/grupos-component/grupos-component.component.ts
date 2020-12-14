@@ -1,9 +1,11 @@
 import { Component, ComponentFactoryResolver, OnInit } from '@angular/core';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { NavParams, ModalController } from "@ionic/angular";
-
+import { AngularFireAuth } from "@angular/fire/auth";
 import { UsuariosService } from "../../servicios/usuarios.service";
 import {ChatsService, chat} from "../../servicios/chats.service"
+import { AlertController } from '@ionic/angular';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-grupos-component',
@@ -19,17 +21,21 @@ export class GruposComponentComponent implements OnInit {
   public yes:any=[];
   public nueva:any= [];
   public nombre_chat: string;
-  constructor(private navParam: NavParams, private modal: ModalController, public usuariosService: UsuariosService, public chatService: ChatsService) { }
+  public uid: any;
+  public quienes_2: any = [];
+  constructor(private router: Router,public alertController: AlertController, private navParam: NavParams, private modal: ModalController, public usuariosService: UsuariosService, public chatService: ChatsService) { }
 
   ngOnInit() {
 
     this.profiles = this.navParam.get('perfiles')
+    
+    console.log(this.profiles)
+    this.uid = this.navParam.get('uid')
     for (let x of this.profiles){
       this.yes.push([0,x.uid])
       this.nueva.push(0)
     }
-    console.log(this.nueva)
-    console.log(this.yes)
+
     this.quienes.push(this.navParam.get('uid'))
   }
 
@@ -51,10 +57,14 @@ export class GruposComponentComponent implements OnInit {
 
 
   create_group(){
-    console.log(this.quienes)
-    console.log(this.nombre_chat)
+
     let chat_id  = new Date().getTime().toString()
     this.chatService.create_chat_group(this.nombre_chat, this.quienes, chat_id)
+    let not_id = new Date().getTime().toString()
+    this.chatService.create_notificacion("Se creo un grupo llamado: ",this.nombre_chat, this.quienes_2, not_id)
+    this.router.navigate(['/mensajes']);
+    
+    this.modal.dismiss()
   }
 
   closeChat(){
@@ -69,6 +79,7 @@ export class GruposComponentComponent implements OnInit {
       if (hola == perfil){
         this.usados.push(perfil)
         this.quienes.push(perfil.uid)
+        this.quienes_2.push(perfil.uid)
         this.nueva[i-1] = 1
       }
     }
@@ -78,7 +89,19 @@ export class GruposComponentComponent implements OnInit {
         this.yes[xs-1][0] = 1
       }
     }
-    console.log(this.yes)
+  }
+
+
+  async ayuda() {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Grupo creado',
+      message: 'Se creo el grupo correctamente, ir a mensajes para encontrar el grupo',
+      buttons: ['OK']
+    });
+
+    await alert.present();
+    this.modal.dismiss()
   }
 
   async filterList(event){
@@ -92,7 +115,6 @@ export class GruposComponentComponent implements OnInit {
         if (ss != 0){
           for (let yy of ss.clase){
             for (let vv of ss.interes){
-              console.log(ss.carrera)
                 if (ss.name.toString().toLowerCase().includes(events.toString())||ss.carrera.toString().toLowerCase().includes(events.toString())|| yy.toString().toLowerCase().includes(events.toString()) ||  vv.toString().toLowerCase().includes(events.toString())){
                   i+=1
                 }

@@ -15,11 +15,11 @@ import { GruposComponentComponent } from './componentes/grupos-component/grupos-
 import { FormsModule} from "@angular/forms"
 import { UsuariosComponent } from "./componentes/usuarios/usuarios.component";
 import { ErrorHandler, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-
+import { NotificacionesComponent} from "./componentes/notificaciones/notificaciones.component"
 
 @NgModule({
-  declarations: [AppComponent, ChatComponent, UsuariosComponent,  GruposComponentComponent],
-  entryComponents: [ChatComponent, GruposComponentComponent],
+  declarations: [AppComponent, ChatComponent, UsuariosComponent,  GruposComponentComponent, NotificacionesComponent],
+  entryComponents: [NotificacionesComponent, ChatComponent, GruposComponentComponent],
   imports: [FormsModule, BrowserModule, IonicModule.forRoot(), AppRoutingModule, 
   AngularFireModule.initializeApp(firebase),
   AngularFireAuthModule, AngularFirestoreModule],

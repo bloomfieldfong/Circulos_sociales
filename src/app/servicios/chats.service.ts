@@ -6,6 +6,7 @@ import { HomePage } from '../home/home.page';
 import { UsuariosService } from "../servicios/usuarios.service";
 import {mensaje} from "../modelos/mensaje"
 import { firestore } from 'firebase';
+import { EmptyError } from 'rxjs';
 export interface chat{
   nombre: any
   id: string
@@ -18,6 +19,14 @@ export interface perfil{
   name: string
   uid: string
 
+}
+
+export interface notificacion{
+  eme: any,
+  id: string,
+  quienes: any[],
+  tipo: string
+  fecha: Date
 }
 @Injectable({
   providedIn: 'root'
@@ -105,6 +114,37 @@ create_chat(image: string, users: any, id: string){
       nombre: image
     })
   }
+
+  
+  create_notificacion(tipo: string, eme: any, quienes: any, id:string){
+    this.db.collection("notificaciones").doc(id).set({
+      id: id,
+      tipo: tipo,
+      eme: eme,
+      quienes: quienes,
+      fecha: Date().replace( "GMT-0600 (Central Standard Time)", " ")
+    })
+  }
+
+  
+getNotificacion(){
+  this.db.collection("notificaciones")
+  return this.db.collection("notificaciones").snapshotChanges().pipe(map(rooms =>{
+    return rooms.map(a => {
+      const data = a.payload.doc.data() as notificacion;
+      data.id = a.payload.doc.id;   
+      return data
+    })
+  }))
+}
+
+getLastNot(){
+  this.getNotificacion().subscribe(noti=>{
+    let notifi = noti
+    return notifi[-1]
+   })
+}
+
 
 }
 

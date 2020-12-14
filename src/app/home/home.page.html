@@ -2,9 +2,9 @@
   <ion-toolbar color = "success">
     <ion-title>
       Inicio
-
-      <ion-icon name="alert-circle-outline" style = "float: right;" (click) = OpenGroup(profiles)></ion-icon>
-
+      <ion-icon name="notifications-outline" style = "float: right; padding-left: 4%" (click) = noti()></ion-icon>
+      <ion-icon name="warning" style = "float: right; color:crimson;" (click) = ayudar()></ion-icon>
+      
     </ion-title>
 
     </ion-toolbar>
@@ -14,7 +14,7 @@
 
 
 
-<ion-searchbar (ionInput) = "filterList($event)"></ion-searchbar>
+<ion-searchbar (ionInput) = "filterList($event)" placeholder="Busqueda por clases, gustos, carrera o nombre"></ion-searchbar>
 <ion-content class="page-content">
     
   <ion-list>

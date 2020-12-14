@@ -15,10 +15,26 @@
 
 <h2 style="text-align: center;">{{profile.name}}</h2>
 <h5 style="text-align: center;">{{profile.carrera}}</h5>
+<ion-card>
+  <ion-card-header>
+    <h6 style="text-align: center; color:white;">   Proviniente de: {{departamento}}</h6>
+  </ion-card-header>
+</ion-card>
 
 <ion-card>
   <ion-card-header>
     <ion-card-title>Clases</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+      <ul>
+          <li *ngFor = "let mens of clases">{{mens}}</li>
+      </ul>
+  </ion-card-content>
+</ion-card>
+
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Intereses</ion-card-title>
   </ion-card-header>
   <ion-card-content>
       <ul>

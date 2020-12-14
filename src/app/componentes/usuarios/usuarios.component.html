@@ -15,13 +15,35 @@
   <h2 style="text-align: center;">{{name}}</h2>
   <h5 style="text-align: center;">{{carrera}}</h5>
 
-<div>
-  <ion-list>
-    <ion-item *ngFor = "let chat of clases">
-        <h2><b>{{chat}}</b></h2>
-    </ion-item>
-  </ion-list>
-</div>
+  <ion-card>
+    <ion-card-header>
+      <h6 style="text-align: center; color:white">   Proviniente de: {{departament}}</h6>
+    </ion-card-header>
+  </ion-card>
+
+
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Clases</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+      <ul>
+          <li *ngFor = "let mens of clases">{{mens}}</li>
+      </ul>
+  </ion-card-content>
+</ion-card>
+
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Intereses</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+      <ul>
+          <li *ngFor = "let mens of profile.interes">{{mens}}</li>
+      </ul>
+  </ion-card-content>
+</ion-card>
+
 <div class="ion-text-center">
   <ion-button color = "success" (click) = "crear_chat()">
     Chatear

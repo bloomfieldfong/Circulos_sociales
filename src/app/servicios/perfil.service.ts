@@ -6,7 +6,9 @@ export interface profile{
   name: string
   clase: string[]
   carrera: string
-  id: string
+  id: string,
+  interes: string
+  departament: string
 }
 
 @Injectable({
